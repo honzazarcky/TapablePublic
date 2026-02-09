@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Runfa.st — Track Your Runs</title>
-    <meta name="description" content="Runfa.st is a mobile running tracker with GPS route mapping, AI coaching, and personalized targets. Built by Tapable.">
+    <title>Runfa.st — Your AI Running Coach</title>
+    <meta name="description" content="Runfa.st is an AI-powered running coach that builds personalized training plans for your races and goals. Track runs, set events, and let your coach guide you to race day.">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A0A0B'/%3E%3Cg transform='translate(3,3)'%3E%3Crect x='0' y='0' width='26' height='26' rx='5.5' stroke='%23F2F4F8' stroke-width='2.2' fill='none'/%3E%3Ccircle cx='13' cy='13' r='6.2' stroke='%23F2F4F8' stroke-width='2.2' fill='none'/%3E%3Cpath d='M13 13L13 6.8A6.2 6.2 0 0 1 18.4 9.3Z' fill='%23F2F4F8'/%3E%3C/g%3E%3C/svg%3E">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -58,38 +58,50 @@
 
         /* HERO */
         .hero {
-            flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 80px 24px 40px;
-            max-width: 760px;
+            padding: 100px 24px 48px;
+            max-width: 800px;
             margin: 0 auto;
         }
-        .app-icon {
-            width: 96px;
-            height: 96px;
-            border-radius: 22px;
-            margin-bottom: 32px;
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 100px;
+            padding: 6px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 28px;
+            letter-spacing: 0.02em;
         }
         .hero h1 {
-            font-size: clamp(36px, 5vw, 60px);
+            font-size: clamp(36px, 5.5vw, 64px);
             font-weight: 800;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-            margin-bottom: 20px;
+            letter-spacing: -0.035em;
+            line-height: 1.08;
+            margin-bottom: 24px;
+        }
+        .hero h1 em {
+            font-style: normal;
+            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.5) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         .hero .subtitle {
             font-size: 18px;
-            color: rgba(255,255,255,0.55);
-            max-width: 480px;
-            line-height: 1.7;
-            margin-bottom: 36px;
+            color: rgba(255,255,255,0.5);
+            max-width: 520px;
+            line-height: 1.75;
+            margin-bottom: 40px;
         }
-
-        /* STORE BADGE */
         .badges {
             display: flex;
             gap: 16px;
@@ -100,84 +112,217 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: #fff;
-            color: #000;
+            background: rgba(255,255,255,0.08);
+            color: rgba(255,255,255,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
             text-decoration: none;
             padding: 12px 28px;
             border-radius: 12px;
             font-weight: 600;
             font-size: 15px;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .badge:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(255,255,255,0.1);
-        }
-        .badge svg { flex-shrink: 0; }
-        .badge-soon {
-            background: rgba(255,255,255,0.08);
-            color: rgba(255,255,255,0.5);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        .badge-soon:hover {
-            box-shadow: none;
-            transform: none;
             cursor: default;
+        }
+
+        /* DIVIDER */
+        .divider {
+            max-width: 960px;
+            margin: 0 auto;
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        /* HOW IT WORKS */
+        .how {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+        .how .section-label {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.35);
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        .how h2 {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            text-align: center;
+            margin-bottom: 56px;
+        }
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+        .step {
+            display: flex;
+            gap: 28px;
+            align-items: flex-start;
+        }
+        .step-num {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 800;
+            color: rgba(255,255,255,0.5);
+        }
+        .step-content h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .step-content p {
+            font-size: 15px;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.7;
+        }
+
+        /* COACH SECTION */
+        .coach {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 24px;
+            text-align: center;
+        }
+        .coach .section-label {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.35);
+            margin-bottom: 16px;
+        }
+        .coach h2 {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+        }
+        .coach > p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.8;
+            max-width: 560px;
+            margin: 0 auto 48px;
+        }
+        .coach-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            text-align: left;
+        }
+        .coach-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 16px;
+            padding: 28px 24px;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .coach-card:hover {
+            border-color: rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.05);
+        }
+        .coach-card .c-icon {
+            font-size: 24px;
+            margin-bottom: 14px;
+        }
+        .coach-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .coach-card p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.45);
+            line-height: 1.6;
         }
 
         /* FEATURES */
         .features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
             max-width: 960px;
             margin: 0 auto;
-            padding: 60px 24px 80px;
+            padding: 80px 24px;
+        }
+        .features .section-label {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.35);
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        .features h2 {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
         }
         .feature {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.07);
             border-radius: 16px;
-            padding: 32px 24px;
+            padding: 28px 24px;
             text-align: center;
             transition: border-color 0.2s, background 0.2s;
         }
         .feature:hover {
-            border-color: rgba(255,255,255,0.2);
-            background: rgba(255,255,255,0.06);
+            border-color: rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.05);
         }
         .feature .f-icon {
-            font-size: 32px;
-            margin-bottom: 16px;
+            font-size: 28px;
+            margin-bottom: 14px;
         }
         .feature h3 {
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
         .feature p {
             font-size: 14px;
-            color: rgba(255,255,255,0.5);
+            color: rgba(255,255,255,0.45);
             line-height: 1.6;
         }
 
-        /* EXTRA INFO */
-        .details {
-            max-width: 640px;
-            margin: 0 auto;
-            padding: 0 24px 80px;
+        /* CTA */
+        .cta {
             text-align: center;
+            padding: 64px 24px 80px;
+            max-width: 560px;
+            margin: 0 auto;
         }
-        .details h2 {
+        .cta h2 {
             font-size: 28px;
-            font-weight: 700;
+            font-weight: 800;
             letter-spacing: -0.02em;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
-        .details p {
+        .cta p {
             font-size: 16px;
-            color: rgba(255,255,255,0.5);
-            line-height: 1.8;
+            color: rgba(255,255,255,0.45);
+            margin-bottom: 28px;
+            line-height: 1.7;
+        }
+        .cta .badge {
+            cursor: default;
         }
 
         /* FOOTER */
@@ -197,8 +342,10 @@
         /* RESPONSIVE */
         @media (max-width: 640px) {
             nav { padding: 20px 24px; }
-            .features { grid-template-columns: 1fr; gap: 16px; }
-            .hero { padding: 60px 24px 32px; }
+            .hero { padding: 60px 24px 40px; }
+            .coach-grid { grid-template-columns: 1fr; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .step { gap: 20px; }
         }
     </style>
 </head>
@@ -207,7 +354,6 @@
     <!-- NAV -->
     <nav>
         <a href="/runfast" class="logo">
-            <!-- Runfa.st logo: rounded square + circle + pie slice -->
             <svg width="36" height="36" viewBox="-10 -10 212 212" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="0" y="0" width="192" height="192" rx="36" stroke="#F2F4F8" stroke-width="18" fill="none"/>
                 <circle cx="96" cy="96" r="45" stroke="#F2F4F8" stroke-width="18" fill="none"/>
@@ -224,54 +370,118 @@
 
     <!-- HERO -->
     <section class="hero">
-        <h1>Run smarter. Run&nbsp;faster.</h1>
-        <p class="subtitle">Track your runs with GPS, set personal targets, and get AI-powered coaching — all in one beautifully simple app.</p>
+        <div class="hero-label">✨ AI-Powered Running Coach</div>
+        <h1>Your coach to <em>race&nbsp;day.</em></h1>
+        <p class="subtitle">Set your race. Track your runs. Runfa.st's AI coach sees where you are, knows where you need to be, and builds your weekly plan to get you there.</p>
         <div class="badges">
-            <a href="#" class="badge badge-soon">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M15.5 1.5h-11A3 3 0 001.5 4.5v11a3 3 0 003 3h11a3 3 0 003-3v-11a3 3 0 00-3-3zM10 14.5a4.5 4.5 0 110-9 4.5 4.5 0 010 9z"/></svg>
-                Coming Soon
-            </a>
+            <a class="badge">Coming Soon</a>
         </div>
     </section>
 
-    <!-- FEATURES -->
+    <hr class="divider">
+
+    <!-- HOW IT WORKS -->
+    <section class="how">
+        <p class="section-label">How it works</p>
+        <h2>From event day to daily plan.</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <h3>Set your event</h3>
+                    <p>Add a race, a half-marathon, a 5K, or just a personal target date. Your coach now knows your deadline and what you're training for.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                    <h3>Run and track</h3>
+                    <p>Record your runs with GPS — route, pace, distance, elevation. Every run feeds your coach more data about your current fitness level.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <h3>Get your weekly plan</h3>
+                    <p>Your AI coach analyzes your progress, how far out your event is, and how you're feeling — then builds a personalized weekly training plan that adapts as you go.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <div class="step-content">
+                    <h3>Show up ready</h3>
+                    <p>No guessing, no generic programs. You arrive at race day with the right miles in your legs and confidence that you trained smart.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- AI COACH -->
+    <section class="coach">
+        <p class="section-label">AI Coach</p>
+        <h2>A coach that actually knows you.</h2>
+        <p>Your coach doesn't give you a cookie-cutter 12-week plan. It watches your training, understands your schedule, and adjusts every week based on real data.</p>
+        <div class="coach-grid">
+            <div class="coach-card">
+                <div class="c-icon">🎯</div>
+                <h3>Event-aware planning</h3>
+                <p>Counts down to your race and structures your training phases — base building, tempo work, tapering — so you peak at the right time.</p>
+            </div>
+            <div class="coach-card">
+                <div class="c-icon">📊</div>
+                <h3>Fitness assessment</h3>
+                <p>Looks at your recent runs, pace trends, and volume to understand where your fitness actually is — not where a generic plan assumes.</p>
+            </div>
+            <div class="coach-card">
+                <div class="c-icon">🔄</div>
+                <h3>Adaptive weekly plans</h3>
+                <p>Missed a run? Feeling tired? Crushed your tempo? Your plan updates to reflect reality, not just a rigid schedule.</p>
+            </div>
+            <div class="coach-card">
+                <div class="c-icon">💬</div>
+                <h3>Conversational check-ins</h3>
+                <p>Tell your coach how you feel. It factors in fatigue, motivation, and recovery to recommend the right intensity for each session.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- TRACKING FEATURES -->
     <section class="features">
-        <div class="feature">
-            <div class="f-icon">📍</div>
-            <h3>GPS Tracking</h3>
-            <p>Accurate route mapping with live pace, distance, and elevation — even in the background.</p>
-        </div>
-        <div class="feature">
-            <div class="f-icon">🎯</div>
-            <h3>Targets</h3>
-            <p>Set daily and weekly goals for distance, pace, or frequency and watch your progress build.</p>
-        </div>
-        <div class="feature">
-            <div class="f-icon">✨</div>
-            <h3>AI Coach</h3>
-            <p>Get personalized training advice based on your running history and fitness level.</p>
-        </div>
-        <div class="feature">
-            <div class="f-icon">⏱️</div>
-            <h3>Run History</h3>
-            <p>Browse all your past runs with detailed stats, splits, and route replays.</p>
-        </div>
-        <div class="feature">
-            <div class="f-icon">❤️</div>
-            <h3>Health Integration</h3>
-            <p>Syncs with Apple Health to pull in steps, distance, and activity data automatically.</p>
-        </div>
-        <div class="feature">
-            <div class="f-icon">🌙</div>
-            <h3>Dark Mode</h3>
-            <p>Designed dark-first with a clean interface that's easy on the eyes, day or night.</p>
+        <p class="section-label">Tracking</p>
+        <h2>Everything you need to run.</h2>
+        <div class="feature-grid">
+            <div class="feature">
+                <div class="f-icon">⏱️</div>
+                <h3>Run History</h3>
+                <p>Browse past runs with detailed stats, splits, and route replays.</p>
+            </div>
+            <div class="feature">
+                <div class="f-icon">❤️</div>
+                <h3>Health Sync</h3>
+                <p>Pulls steps and activity from Apple Health automatically.</p>
+            </div>
+            <div class="feature">
+                <div class="f-icon">🏁</div>
+                <h3>Events</h3>
+                <p>Add races and target dates so your coach can plan around what matters.</p>
+            </div>
+            <div class="feature">
+                <div class="f-icon">🔥</div>
+                <h3>Targets</h3>
+                <p>Set weekly distance or frequency goals and track your consistency.</p>
+            </div>
         </div>
     </section>
 
-    <!-- DETAILS -->
-    <section class="details">
-        <h2>Built for runners, by runners.</h2>
-        <p>Runfa.st strips away the noise and gives you exactly what you need to track, improve, and enjoy your runs. No social feeds. No clutter. Just you and the road.</p>
+    <!-- CTA -->
+    <section class="cta">
+        <h2>Train with purpose.</h2>
+        <p>Stop following generic plans. Let an AI coach that knows your runs, your schedule, and your race build the plan for you.</p>
+        <a class="badge">Coming Soon</a>
     </section>
 
     <!-- FOOTER -->
