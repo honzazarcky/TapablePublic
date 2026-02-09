@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Reflect</title>
+    <meta name="description" content="Privacy Policy for Reflect, a decision-tracking and AI reflection app built by Tapable.">
+    <link rel="icon" type="image/png" href="/reflect/logo.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap');
+
+        :root {
+            --bg: #0c0f14;
+            --text: #f3f5f7;
+            --muted: #8b95a4;
+            --primary: #7c9cff;
+            --border: rgba(255,255,255,0.08);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 48px;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        .logo img {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        .nav-links a {
+            font-size: 14px;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text); }
+
+        .legal {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            flex: 1;
+        }
+        .legal h1 {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 8px;
+        }
+        .legal .updated {
+            font-size: 14px;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 40px;
+        }
+        .legal h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-top: 36px;
+            margin-bottom: 12px;
+        }
+        .legal p, .legal li {
+            font-size: 15px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+        .legal ul {
+            padding-left: 20px;
+            margin-bottom: 12px;
+        }
+        .legal a {
+            color: var(--text);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 24px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.4);
+        }
+        footer a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+        }
+        footer a:hover { color: var(--text); }
+
+        @media (max-width: 640px) {
+            nav { padding: 20px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/reflect" class="logo">
+            <img src="/reflect/logo.png" alt="Reflect logo">
+            <span>Reflect</span>
+        </a>
+        <div class="nav-links">
+            <a href="/reflect">Home</a>
+            <a href="/">Tapable</a>
+        </div>
+    </nav>
+
+    <main class="legal">
+        <h1>Privacy Policy</h1>
+        <p class="updated">Last updated: February 9, 2026</p>
+
+        <h2>Introduction</h2>
+        <p>This Privacy Policy describes how Tapable ("we", "us", or "our") collects, uses, and shares information when you use the Reflect mobile application (the "App"). We are committed to protecting your privacy and being transparent about our data practices.</p>
+        <p>Reflect is designed with privacy in mind. Your decisions are stored locally on your device by default. We do not run analytics, serve ads, or track your behavior.</p>
+
+        <h2>Information We Collect</h2>
+
+        <p><strong>1. Information you provide directly</strong></p>
+        <p>When you sign up and use the App, we collect:</p>
+        <ul>
+            <li><strong>Account information:</strong> You must create an account to use the App. You can sign in using Apple, Google, or Facebook. Through our authentication provider (Clerk), we receive your name and email address associated with the sign-in method you choose.</li>
+            <li><strong>Subscription data:</strong> If you upgrade to Reflect Pro, we store your subscription status (free, pro, or cancelled) on our servers. We do not receive or store your payment details.</li>
+        </ul>
+
+        <p><strong>2. Information stored locally on your device</strong></p>
+        <p>The following data is stored only on your device and is <strong>not transmitted to our servers</strong>:</p>
+        <ul>
+            <li>Decision entries (title, category, mood, notes)</li>
+            <li>Follow-up outcomes and reflections</li>
+            <li>AI-generated reflection questions (cached locally after generation)</li>
+            <li>Decision history and statistics</li>
+        </ul>
+
+        <p><strong>3. Information processed by AI</strong></p>
+        <p>When you use AI features (reflection questions or weekly insights), the following data is sent to our backend server, which forwards it to an AI service for processing:</p>
+        <ul>
+            <li><strong>AI reflection:</strong> Decision title, category, and mood.</li>
+            <li><strong>AI weekly insights:</strong> Title, category, mood, and outcome of your recent decisions (last 30 days).</li>
+        </ul>
+        <p>This data is sent transiently for processing and is <strong>not permanently stored</strong> on our servers or by the AI provider. The generated responses are returned to your device and cached locally.</p>
+
+        <p><strong>4. Information stored on our servers</strong></p>
+        <p>We store minimal data server-side:</p>
+        <ul>
+            <li>Your user ID (from Clerk)</li>
+            <li>Subscription status (free, pro, or cancelled)</li>
+            <li>AI usage count and weekly reset timestamp</li>
+        </ul>
+        <p>We do <strong>not</strong> store your decisions, reflections, or outcomes on our servers.</p>
+
+        <h2>How We Use Your Information</h2>
+        <p>We use the collected information for the following purposes:</p>
+        <ul>
+            <li><strong>Service delivery:</strong> To provide decision tracking, AI reflection questions, and follow-up reminders.</li>
+            <li><strong>AI features:</strong> To generate personalized reflection questions and weekly insights based on your decision data.</li>
+            <li><strong>Authentication:</strong> To verify your identity and manage your account.</li>
+            <li><strong>Subscription management:</strong> To manage your Reflect Pro subscription status and enforce free-tier limits.</li>
+            <li><strong>Data backup:</strong> To enable you to export and import your decisions as JSON files that you control.</li>
+        </ul>
+
+        <h2>Third-Party Services</h2>
+        <p>We use the following third-party services that may collect information:</p>
+        <ul>
+            <li>
+                <strong>Clerk</strong><br>
+                Purpose: User authentication (sign-in via Apple, Google, Facebook)<br>
+                Data shared: Name, email address, user identifier<br>
+                Privacy policy: <a href="https://clerk.com/privacy" target="_blank" rel="noopener">https://clerk.com/privacy</a>
+            </li>
+            <li>
+                <strong>OpenAI</strong><br>
+                Purpose: AI-generated reflection questions and weekly insights<br>
+                Data shared: Decision metadata (title, category, mood, outcome) — sent transiently, not stored<br>
+                Privacy policy: <a href="https://openai.com/privacy" target="_blank" rel="noopener">https://openai.com/privacy</a>
+            </li>
+            <li>
+                <strong>Apple App Store / Google Play Store</strong><br>
+                Purpose: Payment processing for subscriptions (when available)<br>
+                Data shared: Payment information, purchase history (handled directly by Apple/Google)
+            </li>
+            <li>
+                <strong>Expo</strong><br>
+                Purpose: App infrastructure<br>
+                Data shared: No personal data is shared with Expo
+            </li>
+        </ul>
+
+        <h2>Data Sharing</h2>
+        <p>We do <strong>not</strong> sell, trade, or rent your personal information to third parties. We do not share your data with advertisers. We do not use any analytics or tracking services. Data is shared only in the following limited circumstances:</p>
+        <ul>
+            <li>With service providers (Clerk, OpenAI) who assist in operating the App, under strict confidentiality agreements and only when you use their respective features.</li>
+            <li>If required by law, regulation, or legal process.</li>
+            <li>To protect the rights, safety, or property of Tapable, our users, or the public.</li>
+        </ul>
+
+        <h2>Data Backup and Export</h2>
+        <p>Reflect allows you to export your decisions as a JSON file and import them back. When you export:</p>
+        <ul>
+            <li>The backup file is generated locally on your device.</li>
+            <li>You choose where to save it (Files, iCloud, Google Drive, etc.).</li>
+            <li>We do not access, read, or store your backup files on our servers.</li>
+        </ul>
+
+        <h2>Data Retention</h2>
+        <ul>
+            <li><strong>Local data:</strong> Data stored on your device remains until you delete it within the App (via "Clear All Data") or uninstall the App.</li>
+            <li><strong>Account data:</strong> If you request account deletion, we will remove your server-side data within 30 days.</li>
+            <li><strong>AI data:</strong> Decision metadata sent for AI processing is not permanently stored by us or the AI provider.</li>
+        </ul>
+
+        <h2>Data Security</h2>
+        <p>We implement appropriate technical and organizational measures to protect your personal information, including:</p>
+        <ul>
+            <li>Encrypted connections (HTTPS/TLS) for all data transmission.</li>
+            <li>On-device SQLite database for local decision storage.</li>
+            <li>Secure keychain storage (Expo SecureStore) for authentication credentials.</li>
+            <li>Minimal server-side data — only user ID, subscription status, and AI usage counts.</li>
+        </ul>
+        <p>However, no method of transmission over the internet or electronic storage is 100% secure, and we cannot guarantee absolute security.</p>
+
+        <h2>Your Privacy Rights</h2>
+        <p>Depending on your location, you may have the following rights:</p>
+        <ul>
+            <li><strong>Access:</strong> Request a copy of the personal data we hold about you.</li>
+            <li><strong>Correction:</strong> Request correction of inaccurate or incomplete data.</li>
+            <li><strong>Deletion:</strong> Delete all your in-app data directly from within the App using "Clear All Data", or request deletion of your account and server-side data by contacting us.</li>
+            <li><strong>Portability:</strong> Export your decisions as a JSON file at any time from within the App.</li>
+            <li><strong>Withdraw consent:</strong> Stop using AI features at any time; your decisions remain fully functional without AI.</li>
+        </ul>
+        <p>To exercise these rights, please contact us at the email address provided below.</p>
+
+        <h2>Children's Privacy</h2>
+        <p>The App is not intended for children under the age of 13 (or the applicable age of digital consent in your jurisdiction). We do not knowingly collect personal information from children. If you believe we have collected information from a child, please contact us immediately.</p>
+
+        <h2>Changes to This Privacy Policy</h2>
+        <p>We may update this Privacy Policy from time to time. We will notify you of any material changes by:</p>
+        <ul>
+            <li>Posting the new Privacy Policy in the App and on our website.</li>
+            <li>Updating the "Last Updated" date at the top of this page.</li>
+        </ul>
+        <p>Your continued use of the App after changes become effective constitutes acceptance of the revised policy.</p>
+
+        <h2>Contact Us</h2>
+        <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at:</p>
+        <p>
+            Email: <a href="mailto:support@tapable.app">support@tapable.app</a><br>
+            Developer: Tapable<br>
+            App: Reflect — Decisions, Reflections, Clarity
+        </p>
+
+        <p style="margin-top: 36px;">By using the Reflect app, you acknowledge that you have read and understood this Privacy Policy and agree to the collection, use, and sharing of your information as described herein.</p>
+    </main>
+
+    <footer>
+        &copy; 2026 <a href="/">Tapable</a>. All rights reserved.
+    </footer>
+
+</body>
+</html>

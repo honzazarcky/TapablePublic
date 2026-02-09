@@ -232,10 +232,18 @@
         footer {
             border-top: 1px solid var(--border);
             text-align: center;
-            padding: 24px;
+            padding: 32px 24px 24px;
             font-size: 13px;
             color: rgba(255,255,255,0.4);
         }
+        .footer-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .footer-links span { color: rgba(255,255,255,0.2); }
         footer a {
             color: rgba(255,255,255,0.6);
             text-decoration: none;
@@ -261,9 +269,9 @@
             <span>Reflect</span>
         </a>
         <div class="nav-links">
+            <a href="/reflect/privacy">Privacy</a>
+            <a href="/reflect/terms">Terms</a>
             <a href="/">Tapable</a>
-            <a href="/runfast">Runfa.st</a>
-            <a href="/ramadani">Ramadani</a>
         </div>
     </nav>
 
@@ -347,7 +355,14 @@
     </section>
 
     <footer>
-        &copy; 2026 <a href="/">Tapable</a>. All rights reserved.
+        <div class="footer-links">
+            <a href="/reflect/privacy">Privacy Policy</a>
+            <span>&middot;</span>
+            <a href="/reflect/terms">Terms of Use</a>
+            <span>&middot;</span>
+            <a href="mailto:support@tapable.app">Contact</a>
+        </div>
+        <p>&copy; 2026 <a href="/">Tapable</a>. All rights reserved.</p>
     </footer>
 
 </body>
