@@ -78,6 +78,58 @@
             line-height: 1.7;
         }
 
+        /* PRODUCTS */
+        .products {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px 64px;
+        }
+        .products h2 {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        .product-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .product-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 24px 28px;
+            border: 1px solid #e5e5e5;
+            border-radius: 14px;
+            text-decoration: none;
+            color: #000;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .product-card:hover {
+            border-color: #000;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+        }
+        .product-logo {
+            width: 52px;
+            height: 52px;
+            flex-shrink: 0;
+        }
+        .product-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+        .product-card p {
+            font-size: 14px;
+            color: #666;
+        }
+        .product-card .arrow {
+            margin-left: auto;
+            flex-shrink: 0;
+        }
+
         /* SERVICES */
         .services {
             display: grid;
@@ -175,16 +227,32 @@
             </svg>
             <span>Tapable</span>
         </a>
-        <div style="display:flex;align-items:center;gap:24px;">
-            <a href="/runfast" class="nav-link">Products</a>
-            <a href="mailto:support@tapable.app" class="nav-link">Contact</a>
-        </div>
+        <a href="mailto:support@tapable.app" class="nav-link">Contact</a>
     </nav>
 
     <!-- HERO -->
     <section class="hero">
         <h1>We build software that&nbsp;works.</h1>
         <p>Tapable designs and develops mobile applications, web applications, and SaaS products — built for performance, simplicity, and scale.</p>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="products">
+        <h2>Our Products</h2>
+        <div class="product-list">
+            <a href="/runfast" class="product-card">
+                <svg class="product-logo" viewBox="-10 -10 212 212" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0" y="0" width="192" height="192" rx="36" stroke="#000" stroke-width="18" fill="none"/>
+                    <circle cx="96" cy="96" r="45" stroke="#000" stroke-width="18" fill="none"/>
+                    <path d="M96 96 L96 51 A45 45 0 0 1 135 69 Z" fill="#000"/>
+                </svg>
+                <div>
+                    <h3>Runfa.st</h3>
+                    <p>GPS run tracking, personal targets, and AI coaching — all in one app.</p>
+                </div>
+                <svg class="arrow" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+        </div>
     </section>
 
     <!-- SERVICES -->
