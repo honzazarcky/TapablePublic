@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Runfa.st — Track Your Runs</title>
+    <meta name="description" content="Runfa.st is a mobile running tracker with GPS route mapping, AI coaching, and personalized targets. Built by Tapable.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A0A0B'/%3E%3Ccircle cx='16' cy='16' r='9' stroke='%23fff' stroke-width='2' fill='none'/%3E%3Cpath d='M16 10V16L20 20' stroke='%23fff' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #0A0A0B;
+            color: #fff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* NAV */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 48px;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: #fff;
+        }
+        .logo svg { flex-shrink: 0; }
+        .logo span {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+        .nav-links a {
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: #fff; }
+
+        /* HERO */
+        .hero {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 24px 40px;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+        .app-icon {
+            width: 96px;
+            height: 96px;
+            border-radius: 22px;
+            margin-bottom: 32px;
+        }
+        .hero h1 {
+            font-size: clamp(36px, 5vw, 60px);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        .hero .subtitle {
+            font-size: 18px;
+            color: rgba(255,255,255,0.55);
+            max-width: 480px;
+            line-height: 1.7;
+            margin-bottom: 36px;
+        }
+
+        /* STORE BADGE */
+        .badges {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(255,255,255,0.1);
+        }
+        .badge svg { flex-shrink: 0; }
+        .badge-soon {
+            background: rgba(255,255,255,0.08);
+            color: rgba(255,255,255,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .badge-soon:hover {
+            box-shadow: none;
+            transform: none;
+            cursor: default;
+        }
+
+        /* FEATURES */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 60px 24px 80px;
+        }
+        .feature {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .feature:hover {
+            border-color: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.06);
+        }
+        .feature .f-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+        .feature h3 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .feature p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.6;
+        }
+
+        /* EXTRA INFO */
+        .details {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+            text-align: center;
+        }
+        .details h2 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+        .details p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.8;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            text-align: center;
+            padding: 24px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.3);
+        }
+        footer a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+        }
+        footer a:hover { color: #fff; }
+
+        /* RESPONSIVE */
+        @media (max-width: 640px) {
+            nav { padding: 20px 24px; }
+            .features { grid-template-columns: 1fr; gap: 16px; }
+            .hero { padding: 60px 24px 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a href="/runfast" class="logo">
+            <!-- Runfa.st logo: rounded square with stopwatch icon -->
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0.5" y="0.5" width="35" height="35" rx="8" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" fill="none"/>
+                <circle cx="18" cy="19" r="8.5" stroke="#fff" stroke-width="1.8" fill="none"/>
+                <path d="M18 13.5V19L21.5 22.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="18" y1="8" x2="18" y2="10.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+                <line x1="22" y1="9.5" x2="20.5" y2="11.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span>Runfa.st</span>
+        </a>
+        <div class="nav-links">
+            <a href="/">Tapable</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Run smarter. Run&nbsp;faster.</h1>
+        <p class="subtitle">Track your runs with GPS, set personal targets, and get AI-powered coaching — all in one beautifully simple app.</p>
+        <div class="badges">
+            <a href="#" class="badge badge-soon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M15.5 1.5h-11A3 3 0 001.5 4.5v11a3 3 0 003 3h11a3 3 0 003-3v-11a3 3 0 00-3-3zM10 14.5a4.5 4.5 0 110-9 4.5 4.5 0 010 9z"/></svg>
+                Coming Soon
+            </a>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+        <div class="feature">
+            <div class="f-icon">📍</div>
+            <h3>GPS Tracking</h3>
+            <p>Accurate route mapping with live pace, distance, and elevation — even in the background.</p>
+        </div>
+        <div class="feature">
+            <div class="f-icon">🎯</div>
+            <h3>Targets</h3>
+            <p>Set daily and weekly goals for distance, pace, or frequency and watch your progress build.</p>
+        </div>
+        <div class="feature">
+            <div class="f-icon">✨</div>
+            <h3>AI Coach</h3>
+            <p>Get personalized training advice based on your running history and fitness level.</p>
+        </div>
+        <div class="feature">
+            <div class="f-icon">⏱️</div>
+            <h3>Run History</h3>
+            <p>Browse all your past runs with detailed stats, splits, and route replays.</p>
+        </div>
+        <div class="feature">
+            <div class="f-icon">❤️</div>
+            <h3>Health Integration</h3>
+            <p>Syncs with Apple Health to pull in steps, distance, and activity data automatically.</p>
+        </div>
+        <div class="feature">
+            <div class="f-icon">🌙</div>
+            <h3>Dark Mode</h3>
+            <p>Designed dark-first with a clean interface that's easy on the eyes, day or night.</p>
+        </div>
+    </section>
+
+    <!-- DETAILS -->
+    <section class="details">
+        <h2>Built for runners, by runners.</h2>
+        <p>Runfa.st strips away the noise and gives you exactly what you need to track, improve, and enjoy your runs. No social feeds. No clutter. Just you and the road.</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        &copy; 2026 <a href="/">Tapable</a>. All rights reserved.
+    </footer>
+
+</body>
+</html>
