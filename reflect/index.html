@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflect — Decisions, Reflections, Clarity</title>
+    <meta name="description" content="Reflect helps you track decisions, reflect with AI-generated questions, and follow up to see outcomes. Built by Tapable.">
+    <link rel="icon" type="image/png" href="/reflect/logo.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap');
+
+        :root {
+            --bg: #0c0f14;
+            --surface: #141a22;
+            --text: #f3f5f7;
+            --muted: #8b95a4;
+            --primary: #7c9cff;
+            --accent: #ffd28a;
+            --border: rgba(255,255,255,0.08);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+            background: radial-gradient(1000px 600px at 20% -10%, rgba(124,156,255,0.18), transparent 60%),
+                        radial-gradient(900px 500px at 85% 10%, rgba(255,210,138,0.16), transparent 60%),
+                        var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 48px;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        .logo img {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        .nav-links a {
+            font-size: 14px;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text); }
+
+        .hero {
+            text-align: center;
+            padding: 96px 24px 64px;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+        .hero .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(124,156,255,0.16);
+            border: 1px solid rgba(124,156,255,0.35);
+            color: #b8c7ff;
+            border-radius: 999px;
+            padding: 6px 16px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-size: clamp(38px, 6vw, 66px);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.08;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            color: var(--muted);
+            font-size: 18px;
+            line-height: 1.8;
+            margin: 0 auto 32px;
+            max-width: 600px;
+        }
+        .hero .cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--text);
+            color: #10141a;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 24px 24px 80px;
+        }
+        .section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+        .feature {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px 20px;
+        }
+        .feature .icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .feature h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .feature p {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .steps {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+        .steps h2 {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 32px;
+        }
+        .step-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .step {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 22px 20px;
+        }
+        .step .num {
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+        .step h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .step p {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .value {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+            text-align: center;
+        }
+        .value h2 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+        .value p {
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        .pill-row {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+        .pill {
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 24px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.4);
+        }
+        footer a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+        }
+        footer a:hover { color: var(--text); }
+
+        @media (max-width: 900px) {
+            .feature-grid { grid-template-columns: repeat(2, 1fr); }
+            .step-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 640px) {
+            nav { padding: 20px 24px; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .hero { padding: 72px 24px 48px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/reflect" class="logo">
+            <img src="/reflect/logo.png" alt="Reflect logo">
+            <span>Reflect</span>
+        </a>
+        <div class="nav-links">
+            <a href="/">Tapable</a>
+            <a href="/runfast">Runfa.st</a>
+            <a href="/ramadani">Ramadani</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="badge">AI reflection</div>
+        <h1>Decisions. Reflection. Clarity.</h1>
+        <p>Track important decisions, reflect with AI-generated questions, and follow up to see what worked. Reflect helps you make better calls and learn faster.</p>
+        <a class="cta">Coming Soon</a>
+    </section>
+
+    <section class="section">
+        <h2>What Reflect helps you do</h2>
+        <div class="feature-grid">
+            <div class="feature">
+                <div class="icon">🧠</div>
+                <h3>Decision tracking</h3>
+                <p>Capture decisions with context, confidence, and a quick note about why it matters.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">✨</div>
+                <h3>AI reflection</h3>
+                <p>Get tailored questions that challenge your thinking and surface blind spots.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">🔁</div>
+                <h3>Follow-ups</h3>
+                <p>Check back on outcomes to see what changed and what you learned.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">📊</div>
+                <h3>Insights</h3>
+                <p>Spot patterns in your decisions, habits, and results over time.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">🔐</div>
+                <h3>Magic link login</h3>
+                <p>Secure, passwordless access so you can start reflecting immediately.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">⚡</div>
+                <h3>Pro tools</h3>
+                <p>Unlock unlimited decisions, deeper insights, and premium AI prompts.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="steps">
+        <h2>How it works</h2>
+        <div class="step-grid">
+            <div class="step">
+                <div class="num">01</div>
+                <h3>Log the decision</h3>
+                <p>Capture the situation, the choice you made, and your confidence level.</p>
+            </div>
+            <div class="step">
+                <div class="num">02</div>
+                <h3>Reflect with AI</h3>
+                <p>Get thoughtful questions to stress test the decision and reveal angles you missed.</p>
+            </div>
+            <div class="step">
+                <div class="num">03</div>
+                <h3>Follow the outcome</h3>
+                <p>Set a reminder and record what actually happened weeks later.</p>
+            </div>
+            <div class="step">
+                <div class="num">04</div>
+                <h3>Learn and improve</h3>
+                <p>Turn outcomes into insight so your next decision is stronger.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="value">
+        <h2>Private by default.</h2>
+        <p>Your decisions are personal. Reflect stores your data securely and is designed for privacy first.</p>
+        <div class="pill-row">
+            <div class="pill">Encrypted data</div>
+            <div class="pill">No ads</div>
+            <div class="pill">You control your history</div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 <a href="/">Tapable</a>. All rights reserved.
+    </footer>
+
+</body>
+</html>
