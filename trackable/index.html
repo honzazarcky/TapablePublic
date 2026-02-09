@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trackable — The HR System for Growing Teams</title>
+    <meta name="description" content="TrackableHR is a modern HR platform for growing teams: time tracking, approvals, employee directory, documents, and compliance — all in one place.">
+    <link rel="icon" type="image/svg+xml" href="/trackable/logo.svg">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;500;600;700&display=swap');
+
+        :root {
+            --bg: #f7f7f4;
+            --surface: #ffffff;
+            --text: #0b0b0b;
+            --muted: #5f646b;
+            --accent: #0b0b0b;
+            --line: rgba(0,0,0,0.08);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Sora', system-ui, -apple-system, sans-serif;
+            background: radial-gradient(900px 500px at 10% -10%, rgba(0,0,0,0.06), transparent 60%),
+                        radial-gradient(900px 500px at 90% 0%, rgba(0,0,0,0.05), transparent 60%),
+                        var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 48px;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        .logo img {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: #000;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        .nav-links a {
+            font-size: 14px;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text); }
+
+        .hero {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 96px 24px 64px;
+            text-align: center;
+        }
+        .hero .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 6px 16px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 24px;
+            background: rgba(255,255,255,0.7);
+        }
+        .hero h1 {
+            font-size: clamp(38px, 6vw, 70px);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            color: var(--muted);
+            font-size: 18px;
+            line-height: 1.8;
+            margin: 0 auto 32px;
+            max-width: 640px;
+        }
+        .hero .cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--text);
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+        .section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+        .feature {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 24px 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        }
+        .feature .icon {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        .feature h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .feature p {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .highlight {
+            max-width: 900px;
+            margin: 0 auto 80px;
+            background: #0b0b0b;
+            color: #fff;
+            border-radius: 20px;
+            padding: 36px 28px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .highlight h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .highlight p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+        }
+
+        .cta-block {
+            max-width: 720px;
+            margin: 0 auto 80px;
+            text-align: center;
+        }
+        .cta-block h2 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+        .cta-block p {
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        footer {
+            border-top: 1px solid var(--line);
+            text-align: center;
+            padding: 24px;
+            font-size: 13px;
+            color: var(--muted);
+        }
+        footer a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        @media (max-width: 900px) {
+            .feature-grid { grid-template-columns: repeat(2, 1fr); }
+            .highlight { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 640px) {
+            nav { padding: 20px 24px; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .hero { padding: 72px 24px 48px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/trackable" class="logo">
+            <img src="/trackable/logo.svg" alt="Trackable logo">
+            <span>TrackableHR</span>
+        </a>
+        <div class="nav-links">
+            <a href="https://trackablehr.com" target="_blank" rel="noopener">trackablehr.com</a>
+            <a href="/">Tapable</a>
+            <a href="/runfast">Runfa.st</a>
+            <a href="/ramadani">Ramadani</a>
+            <a href="/reflect">Reflect</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="badge">SaaS Platform</div>
+        <h1>The HR system for growing teams.</h1>
+        <p>TrackableHR is a SaaS platform that centralizes time tracking, approvals, employee data, and compliance — available at trackablehr.com.</p>
+        <a class="cta" href="https://trackablehr.com" target="_blank" rel="noopener">Visit trackablehr.com</a>
+    </section>
+
+    <section class="section">
+        <h2>Everything your team needs</h2>
+        <div class="feature-grid">
+            <div class="feature">
+                <div class="icon">⏱️</div>
+                <h3>Time tracking</h3>
+                <p>Log time entries and manage timesheets with flexible scheduling and approvals.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">🗂️</div>
+                <h3>Team directory</h3>
+                <p>Keep roles, profiles, and org structure in one searchable directory.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">✅</div>
+                <h3>Approvals</h3>
+                <p>Streamline requests and manager approvals with a clean, unified workflow.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">📄</div>
+                <h3>Documents</h3>
+                <p>Secure employee file storage with justification rules and audit trails.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">🔐</div>
+                <h3>RBAC + ABAC</h3>
+                <p>Granular permissions and company-scoped roles for compliance and control.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">📈</div>
+                <h3>Scales with you</h3>
+                <p>Multi-tenant architecture designed for SMBs and growing organizations.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="highlight">
+        <div>
+            <h3>Track time effortlessly</h3>
+            <p>From entries to timesheets, approvals flow through a single timeline.</p>
+        </div>
+        <div>
+            <h3>Stay audit-ready</h3>
+            <p>Every change is logged. Documents stay tied to the right request.</p>
+        </div>
+        <div>
+            <h3>Built for multi-tenant teams</h3>
+            <p>Company-scoped roles and permissions keep data isolated and secure.</p>
+        </div>
+    </section>
+
+    <section class="cta-block">
+        <h2>Ready to simplify HR?</h2>
+        <p>TrackableHR brings time, people, and compliance into one modern system. See it live at trackablehr.com.</p>
+        <a class="cta" href="https://trackablehr.com" target="_blank" rel="noopener">Open trackablehr.com</a>
+    </section>
+
+    <footer>
+        &copy; 2026 <a href="/">Tapable</a>. All rights reserved.
+    </footer>
+
+</body>
+</html>
