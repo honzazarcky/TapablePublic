@@ -1,0 +1,6 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tapable">
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <rect x="190" y="165" width="240" height="240" rx="48" fill="#000000"/>
+  <text x="310" y="330" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="140" font-weight="800" fill="#ffffff">T</text>
+  <text x="470" y="325" font-family="system-ui, -apple-system, sans-serif" font-size="96" font-weight="700" fill="#000000">Tapable</text>
+</svg>
