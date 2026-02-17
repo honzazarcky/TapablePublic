@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="سياسة الخصوصية لتطبيق رمضاني، تطبيق رفيق إسلامي محلي من Tapable.">
+    <title>سياسة الخصوصية — رمضاني</title>
+    <link rel="icon" type="image/png" href="/ramadani/logo.png">
+    <style>
+:root {
+    --bg: #0D1117;
+    --text: #ffffff;
+    --muted: #8B949E;
+    --primary: #10B981;
+    --border: rgba(255,255,255,0.08);
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Segoe UI', Tahoma, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+nav { display: flex; align-items: center; justify-content: space-between; padding: 24px 48px; max-width: 1200px; width: 100%; margin: 0 auto; }
+.logo { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--text); font-weight: 800; }
+.logo img { width: 36px; height: 36px; border-radius: 10px; background: #000; }
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.lang-switch { position: relative; }
+.lang-switch select { appearance: none; -webkit-appearance: none; background: rgba(255,255,255,0.06); border: 1px solid var(--border); color: var(--muted); font-size: 13px; font-weight: 600; padding: 6px 12px 6px 32px; border-radius: 8px; cursor: pointer; transition: border-color 0.2s, color 0.2s; outline: none; }
+.lang-switch select:hover { border-color: rgba(255,255,255,0.2); color: var(--text); }
+.lang-switch::after { content: '▾'; position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 12px; pointer-events: none; }
+.legal { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; flex: 1; }
+.legal h1 { font-size: 36px; font-weight: 800; margin-bottom: 8px; }
+.legal .updated { font-size: 14px; color: rgba(255,255,255,0.4); margin-bottom: 40px; }
+.legal h2 { font-size: 20px; font-weight: 700; margin-top: 36px; margin-bottom: 12px; }
+.legal p, .legal li { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 12px; }
+.legal ul { padding-right: 20px; padding-left: 0; margin-bottom: 12px; }
+.legal a { color: var(--text); text-decoration: underline; text-underline-offset: 2px; }
+footer { border-top: 1px solid var(--border); text-align: center; padding: 24px; font-size: 13px; color: rgba(255,255,255,0.4); }
+footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+footer a:hover { color: var(--text); }
+@media (max-width: 640px) { nav { padding: 20px 24px; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/ramadani/ar" class="logo">
+            <img src="/ramadani/logo.png" alt="شعار رمضاني">
+            <span>رمضاني</span>
+        </a>
+        <div class="nav-links">
+            <a href="/ramadani/ar">الرئيسية</a>
+            <a href="/">Tapable</a>
+            <div class="lang-switch">
+                <select id="langSelect" aria-label="اللغة" onchange="window.location.href='/ramadani/'+this.value+'/privacy'">
+                    <option value="en">English</option>
+                    <option value="ar" selected>العربية</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <main class="legal">
+<h1>سياسة الخصوصية</h1>
+<p class="updated">آخر تحديث: ٩ فبراير ٢٠٢٦</p>
+
+<h2>المقدمة</h2>
+<p>تصف سياسة الخصوصية هذه كيف تقوم Tapable ("نحن" أو "لنا") بجمع واستخدام ومشاركة المعلومات عند استخدامك لتطبيق رمضاني للهواتف المحمولة ("التطبيق"). نحن ملتزمون بحماية خصوصيتك والشفافية بشأن ممارسات البيانات لدينا.</p>
+<p>رمضاني مبني بهندسة <strong>محلية أولاً</strong>. بياناتك تبقى على جهازك بشكل افتراضي. لا نقوم بتشغيل تحليلات أو عرض إعلانات أو تتبع سلوكك. التطبيق مصمم للعمل بالكامل بدون إنترنت لميزاته الأساسية.</p>
+
+<h2>المعلومات التي نجمعها</h2>
+<p><strong>١. المعلومات التي تقدمها مباشرة</strong></p>
+<p>عند التسجيل واستخدام التطبيق، نجمع:</p>
+<ul>
+    <li><strong>معلومات الحساب:</strong> يجب عليك إنشاء حساب لاستخدام التطبيق. يمكنك تسجيل الدخول باستخدام Apple أو Google أو Facebook. من خلال مزود المصادقة لدينا (Clerk)، نتلقى اسمك وعنوان بريدك الإلكتروني المرتبط بطريقة تسجيل الدخول التي تختارها.</li>
+    <li><strong>التفضيلات:</strong> طريقة حساب الصلاة، تفضيل المذهب، اللغة، وإعدادات المظهر.</li>
+    <li><strong>تفضيلات الإشعارات:</strong> ما إذا كنت تفعّل إشعارات الصلاة، والصلوات التي تريد الإشعار بها، وتوقيت الإشعارات.</li>
+    <li><strong>بيانات الاشتراك:</strong> إذا اشتركت في رمضاني برو، نتلقى حالة اشتراكك (نشط أو منتهي أو ملغى) عبر RevenueCat. لا نتلقى أو نخزن تفاصيل الدفع أو رقم بطاقة الائتمان أو عنوان الفواتير.</li>
+</ul>
+<p><strong>٢. المعلومات المجمعة بإذنك</strong></p>
+<ul>
+    <li><strong>بيانات الموقع:</strong> بإذنك، نصل إلى موقع جهازك لحساب مواقيت الصلاة الدقيقة وتحديد اتجاه القبلة. إحداثياتك واسم مدينتك يتم تخزينها <strong>محلياً على جهازك فقط</strong> ولا يتم إرسالها أبداً إلى خوادمنا.</li>
+    <li><strong>بيانات الحركة والبوصلة:</strong> يستخدم التطبيق مقياس المغناطيسية (البوصلة) في جهازك لعرض اتجاه القبلة. تتم معالجة هذه البيانات في الوقت الفعلي على جهازك ولا يتم تخزينها أو إرسالها.</li>
+</ul>
+<p><strong>٣. المعلومات المخزنة محلياً على جهازك</strong></p>
+<p>البيانات التالية مخزنة فقط على جهازك و<strong>لا يتم إرسالها إلى خوادمنا</strong> إلا إذا اخترت صراحةً النسخ الاحتياطي السحابي:</p>
+<ul>
+    <li>جلسات وسجل عداد التسبيح (الذكر)</li>
+    <li>الأدعية المفضلة وأسماء الله الحسنى</li>
+    <li>سجل الصلاة (هل صليت وهل في الوقت المحدد)</li>
+    <li>تقدم الحفظ للأدعية وأسماء الله الحسنى</li>
+    <li>إشارات القرآن المرجعية وتقدم القراءة</li>
+    <li>سجل قراءة الدعاء اليومي</li>
+    <li>إحداثيات الموقع واسم المدينة</li>
+    <li>جميع إعدادات وتفضيلات التطبيق</li>
+</ul>
+
+<h2>كيف نستخدم معلوماتك</h2>
+<p>نستخدم المعلومات المجمعة للأغراض التالية:</p>
+<ul>
+    <li><strong>تقديم الخدمة:</strong> لحساب مواقيت الصلاة وعرض اتجاه القبلة وتقديم الميزات الأساسية للتطبيق بناءً على موقعك وتفضيلاتك.</li>
+    <li><strong>الإشعارات:</strong> لإرسال تذكيرات محلية بمواقيت الصلاة على جهازك (بدون إشعارات دفع من الخادم).</li>
+    <li><strong>المصادقة:</strong> للتحقق من هويتك وإدارة حسابك.</li>
+    <li><strong>إدارة الاشتراك:</strong> لمعالجة وإدارة حالة اشتراكك في رمضاني برو.</li>
+    <li><strong>المزامنة السحابية:</strong> لمزامنة بياناتك عبر الأجهزة، فقط إذا اخترت صراحةً النسخ الاحتياطي السحابي.</li>
+</ul>
+
+<h2>خدمات الطرف الثالث</h2>
+<p>نستخدم خدمات الطرف الثالث التالية التي قد تجمع معلومات:</p>
+<ul>
+    <li><strong>Clerk</strong><br>الغرض: مصادقة المستخدم (تسجيل الدخول عبر Apple أو Google أو Facebook)<br>البيانات المشتركة: الاسم، عنوان البريد الإلكتروني، معرف المستخدم<br>سياسة الخصوصية: <a href="https://clerk.com/privacy" target="_blank" rel="noopener">https://clerk.com/privacy</a></li>
+    <li><strong>RevenueCat</strong><br>الغرض: معالجة الاشتراكات والمدفوعات<br>البيانات المشتركة: معرف المستخدم، معلومات الشراء، حالة الاشتراك<br>سياسة الخصوصية: <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">https://www.revenuecat.com/privacy</a></li>
+    <li><strong>Apple App Store / Google Play Store</strong><br>الغرض: معالجة المدفوعات للاشتراكات<br>البيانات المشتركة: معلومات الدفع، سجل المشتريات (يتم التعامل معها مباشرة من Apple/Google)</li>
+    <li><strong>Expo</strong><br>الغرض: البنية التحتية للتطبيق والتحديثات الفورية<br>البيانات المشتركة: لا تتم مشاركة بيانات شخصية مع Expo</li>
+</ul>
+
+<h2>مشاركة البيانات</h2>
+<p>نحن <strong>لا</strong> نبيع أو نتاجر أو نؤجر معلوماتك الشخصية لأطراف ثالثة. لا نشارك بياناتك مع المعلنين. لا نستخدم أي خدمات تحليلات أو تتبع. تتم مشاركة البيانات فقط في الظروف المحدودة التالية:</p>
+<ul>
+    <li>مع مزودي الخدمة (Clerk وRevenueCat) الذين يساعدون في تشغيل التطبيق، بموجب اتفاقيات سرية صارمة وفقط عند استخدامك لميزاتهم المعنية.</li>
+    <li>إذا تطلب الأمر بموجب القانون أو اللوائح أو الإجراءات القانونية.</li>
+    <li>لحماية حقوق أو سلامة أو ممتلكات Tapable أو مستخدمينا أو الجمهور.</li>
+</ul>
+
+<h2>الاحتفاظ بالبيانات</h2>
+<ul>
+    <li><strong>البيانات المحلية:</strong> تبقى البيانات المخزنة على جهازك حتى تحذفها من التطبيق أو تلغي تثبيت التطبيق.</li>
+    <li><strong>بيانات الحساب:</strong> إذا كان لديك حساب وطلبت الحذف، سنزيل بياناتك من الخادم خلال ٣٠ يوماً.</li>
+    <li><strong>بيانات الاشتراك:</strong> يتم الاحتفاظ بسجلات الاشتراك من قبل RevenueCat وفقاً لسياسات الاحتفاظ الخاصة بهم وكما هو مطلوب من Apple/Google لسجلات المعاملات.</li>
+</ul>
+
+<h2>أمن البيانات</h2>
+<p>ننفذ التدابير التقنية والتنظيمية المناسبة لحماية معلوماتك الشخصية، بما في ذلك:</p>
+<ul>
+    <li>اتصالات مشفرة (HTTPS/TLS) لجميع عمليات نقل البيانات.</li>
+    <li>قاعدة بيانات SQLite على الجهاز لتخزين البيانات المحلية.</li>
+    <li>تخزين آمن في سلسلة المفاتيح (Expo SecureStore) للبيانات الحساسة.</li>
+    <li>الحد الأدنى من البيانات على الخادم — فقط معرف المستخدم وحالة الاشتراك إذا اخترت النسخ الاحتياطي السحابي.</li>
+</ul>
+<p>ومع ذلك، لا توجد طريقة نقل عبر الإنترنت أو تخزين إلكتروني آمنة بنسبة ١٠٠٪، ولا يمكننا ضمان الأمان المطلق.</p>
+
+<h2>حقوق الخصوصية الخاصة بك</h2>
+<p>حسب موقعك، قد يكون لديك الحقوق التالية:</p>
+<ul>
+    <li><strong>الوصول:</strong> طلب نسخة من البيانات الشخصية التي نحتفظ بها عنك.</li>
+    <li><strong>التصحيح:</strong> طلب تصحيح البيانات غير الدقيقة أو غير المكتملة.</li>
+    <li><strong>الحذف:</strong> حذف جميع بياناتك في التطبيق (سجلات الصلاة، جلسات التسبيح، المفضلة، تقدم الحفظ) مباشرة من داخل التطبيق، أو طلب حذف حسابك وجميع البيانات على الخادم بالتواصل معنا.</li>
+    <li><strong>قابلية النقل:</strong> طلب بياناتك بتنسيق قابل للنقل.</li>
+    <li><strong>سحب الموافقة:</strong> إلغاء أذونات الموقع أو الحركة في أي وقت من خلال إعدادات جهازك.</li>
+</ul>
+<p>لممارسة هذه الحقوق، يرجى التواصل معنا على عنوان البريد الإلكتروني المذكور أدناه.</p>
+
+<h2>الإشعارات الفورية</h2>
+<p>يستخدم التطبيق إشعارات فورية محلية لتذكيرك بمواقيت الصلاة. هذه الإشعارات:</p>
+<ul>
+    <li>مجدولة محلياً على جهازك — لا يتم إرسال بيانات إلى خوادم خارجية.</li>
+    <li>مبنية على طريقة حساب الصلاة وموقعك وتفضيلات الإشعارات.</li>
+    <li>اختيارية تماماً ويمكن تكوينها أو تعطيلها لكل صلاة في إعدادات التطبيق أو من خلال إعدادات جهازك.</li>
+    <li>لا تُستخدم لإرسال رسائل تسويقية أو إعلانات.</li>
+</ul>
+
+<h2>خصوصية الأطفال</h2>
+<p>التطبيق غير مخصص للأطفال دون سن ١٣ عاماً (أو السن المعمول به للموافقة الرقمية في نطاق ولايتك القضائية). لا نجمع عن قصد معلومات شخصية من الأطفال. إذا كنت تعتقد أننا جمعنا معلومات من طفل، يرجى التواصل معنا فوراً.</p>
+
+<h2>التغييرات على سياسة الخصوصية هذه</h2>
+<p>قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر. سنخطرك بأي تغييرات جوهرية عن طريق:</p>
+<ul>
+    <li>نشر سياسة الخصوصية الجديدة في التطبيق وعلى موقعنا الإلكتروني.</li>
+    <li>تحديث تاريخ "آخر تحديث" في أعلى هذه الصفحة.</li>
+</ul>
+<p>استمرارك في استخدام التطبيق بعد سريان التغييرات يعني قبولك للسياسة المعدلة.</p>
+
+<h2>تواصل معنا</h2>
+<p>إذا كان لديك أي أسئلة أو مخاوف أو طلبات بخصوص سياسة الخصوصية هذه أو ممارسات البيانات لدينا، يرجى التواصل معنا على:</p>
+<p>البريد الإلكتروني: <a href="mailto:support@tapable.app">support@tapable.app</a><br>المطور: Tapable<br>التطبيق: رمضاني — الرفيق الإسلامي</p>
+
+<p style="margin-top: 36px;">باستخدامك لتطبيق رمضاني، فإنك تقر بأنك قد قرأت وفهمت سياسة الخصوصية هذه وتوافق على جمع واستخدام ومشاركة معلوماتك كما هو موضح هنا.</p>
+    </main>
+
+    <footer>
+        &copy; 2026 <a href="/">Tapable</a>. جميع الحقوق محفوظة.
+    </footer>
+</body>
+</html>
