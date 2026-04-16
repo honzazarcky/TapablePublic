@@ -1,2 +1,2 @@
-# TapablePublic
-This is a public repository for Tapable org
+# Runfast
+This is a public repository for Runfa.st.
