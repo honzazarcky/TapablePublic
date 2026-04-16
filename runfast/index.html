@@ -76,6 +76,8 @@
             transition: color 0.15s;
         }
         .nav-right a:hover { color: var(--text); }
+        .nav-right a.app-store-btn { color: #000; }
+        .nav-right a.app-store-btn:hover { color: #000; }
 
         /* ---- APP STORE BUTTON ---- */
         .app-store-btn {
@@ -96,6 +98,15 @@
             box-shadow: 0 8px 30px rgba(255,255,255,0.08);
         }
         .app-store-btn svg { flex-shrink: 0; }
+
+        /* ---- PHONE FRAME ---- */
+        .phone-frame {
+            border-radius: 32px;
+            box-shadow: 0 24px 80px rgba(59,130,246,0.12), 0 0 0 1px rgba(255,255,255,0.06);
+            aspect-ratio: 9 / 19.5;
+            object-fit: cover;
+            object-position: top center;
+        }
 
         /* ---- HERO ---- */
         .hero {
@@ -127,7 +138,7 @@
         }
         .hero-screenshot img {
             width: 100%;
-            max-width: 420px;
+            max-width: 300px;
             height: auto;
             display: block;
         }
@@ -145,10 +156,14 @@
             flex-wrap: wrap;
         }
         .showcase-scroll img {
-            width: 280px;
+            width: 240px;
             height: auto;
             display: block;
             flex-shrink: 0;
+            transition: transform 0.25s ease;
+        }
+        .showcase-scroll img:hover {
+            transform: scale(1.03);
         }
 
         /* ---- FEATURES ---- */
@@ -269,7 +284,7 @@
         }
         .coach-visual img {
             width: 100%;
-            max-width: 420px;
+            max-width: 300px;
             height: auto;
             display: block;
         }
@@ -368,28 +383,28 @@
             }
             .hero-text p { margin-left: auto; margin-right: auto; }
             .hero-text h1 { font-size: 40px; }
-            .hero-screenshot img { max-width: 320px; }
+            .hero-screenshot img { max-width: 240px; }
             .coach-section {
                 grid-template-columns: 1fr;
                 gap: 48px;
                 text-align: center;
             }
             .coach-section .coach-visual { order: -1; }
-            .coach-visual img { max-width: 320px; }
+            .coach-visual img { max-width: 240px; }
             .coach-points { align-items: center; }
             .features-header { text-align: center; margin-left: auto; margin-right: auto; }
         }
         @media (max-width: 700px) {
             .features-grid { grid-template-columns: 1fr; }
             .showcase-scroll { gap: 16px; padding: 0 20px; }
-            .showcase-scroll img { width: 220px; }
+            .showcase-scroll img { width: 200px; }
             .nav-inner { padding: 14px 20px; }
             .hero, .features, .coach-section { padding-left: 20px; padding-right: 20px; }
             .features-header h2, .coach-text h2 { font-size: 28px; }
         }
         @media (max-width: 500px) {
             .hero-text h1 { font-size: 32px; }
-            .showcase-scroll img { width: 200px; }
+            .showcase-scroll img { width: 180px; }
         }
     </style>
 </head>
@@ -428,17 +443,17 @@
             </a>
         </div>
         <div class="hero-screenshot">
-            <img src="https://github.com/user-attachments/assets/6439198f-59e7-43c6-9805-47434659ce91" alt="Runfa.st app screenshot" loading="eager">
+            <img src="https://github.com/user-attachments/assets/6439198f-59e7-43c6-9805-47434659ce91" alt="Runfa.st app screenshot" class="phone-frame" loading="eager">
         </div>
     </section>
 
     <!-- APP SCREENSHOTS -->
     <section class="showcase">
         <div class="showcase-scroll">
-            <img src="https://github.com/user-attachments/assets/73320fac-b041-441a-aaf4-4925efc5d532" alt="Runfa.st app — run history and stats" loading="lazy">
-            <img src="https://github.com/user-attachments/assets/6439198f-59e7-43c6-9805-47434659ce91" alt="Runfa.st app — training plans" loading="lazy">
-            <img src="https://github.com/user-attachments/assets/ade9971a-e9fa-45b3-8b31-5a868ecc4a82" alt="Runfa.st app — AI coaching" loading="lazy">
-            <img src="https://github.com/user-attachments/assets/3f79a0f8-58fd-4d0e-9944-0344d35d9f5b" alt="Runfa.st app — progress tracking" loading="lazy">
+            <img src="https://github.com/user-attachments/assets/73320fac-b041-441a-aaf4-4925efc5d532" alt="Runfa.st app — run history and stats" class="phone-frame" loading="lazy">
+            <img src="https://github.com/user-attachments/assets/6439198f-59e7-43c6-9805-47434659ce91" alt="Runfa.st app — training plans" class="phone-frame" loading="lazy">
+            <img src="https://github.com/user-attachments/assets/ade9971a-e9fa-45b3-8b31-5a868ecc4a82" alt="Runfa.st app — AI coaching" class="phone-frame" loading="lazy">
+            <img src="https://github.com/user-attachments/assets/3f79a0f8-58fd-4d0e-9944-0344d35d9f5b" alt="Runfa.st app — progress tracking" class="phone-frame" loading="lazy">
         </div>
     </section>
 
@@ -451,10 +466,10 @@
         <div class="features-grid">
             <div class="f-card">
                 <div class="f-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                 </div>
-                <h3>GPS run tracking</h3>
-                <p>Route, pace, distance, elevation, heart rate. Every detail, automatically captured.</p>
+                <h3>Compete with friends</h3>
+                <p>Add friends, compare weekly stats, and push each other to hit new goals together.</p>
             </div>
             <div class="f-card">
                 <div class="f-icon">
@@ -515,7 +530,7 @@
             </div>
         </div>
         <div class="coach-visual">
-            <img src="https://github.com/user-attachments/assets/3f79a0f8-58fd-4d0e-9944-0344d35d9f5b" alt="Runfa.st app — adaptive training plan" loading="lazy">
+            <img src="https://github.com/user-attachments/assets/3f79a0f8-58fd-4d0e-9944-0344d35d9f5b" alt="Runfa.st app — adaptive training plan" class="phone-frame" loading="lazy">
         </div>
     </section>
 
